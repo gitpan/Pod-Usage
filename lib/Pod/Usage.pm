@@ -11,7 +11,7 @@ package Pod::Usage;
 use strict;
 
 use vars qw($VERSION @ISA @EXPORT);
-$VERSION = '1.60';  ## Current version of this package
+$VERSION = '1.61';  ## Current version of this package
 require  5.005;    ## requires this Perl version or later
 
 #use diagnostics;
