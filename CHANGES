@@ -1,3 +1,24 @@
+1.62 (marekr)
+Patches provided by rjbs - many thanks!
+- These commits update Pod::Usage to only use Pod::Simple, so that any
+  reliance on Pod::Parser is removed, making it easier to remove Pod::Parser
+  from core.
+- [PATCH 1/4] update Makefile: strict, INSTALLDIR, 5.6
+- [PATCH 2/4] we will start to require perl 5.6 from here on out
+- [PATCH 3/4] always use Pod::Text as default base class
+- [PATCH 4/4] eliminate the branch in which Pod::Parser would be used
+  This commit is intended entirely to free Pod::Usage from any reliance on
+  Pod::Parser.
+  * Usage.pm now defaults to using Pod::Text, rather than checking $] to pick.
+  * $Pod::Select::MAX_HEADING_LEVEL is replaced with a local var
+  * &Pod::Select::_compile_section_spec is copied into this module
+    This isn't the most elegant fix, but it's a bit of a ball of mud. The code
+    is written to let you alter @ISA at runtime to something that is derived
+    either from Pod::Parser or Pod::Simple. This should probably be more
+    explicitly limited to Pod::Simple in future releases.
+- CPAN#84031: eliminate branches using Pod::Parser
+  removed test suite dependencies on Pod::Parser
+
 1.61 (marekr)
 - fix empty META.yml (CPAN RT#83118: META.yml is empty)
 - update outdated test expected data (CPAN RT#83111: fails test)

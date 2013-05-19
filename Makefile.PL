@@ -3,17 +3,19 @@
 # This file is part of "Pod-Usage". Pod-Usage is free software;
 # you can redistribute it and/or modify it under the same terms
 # as Perl itself.
+use 5.006;
+use strict;
 
 use ExtUtils::MakeMaker;
 use File::Spec;
 
-$DISTNAME  = "Pod-Usage";    ## The "product" name for this distribution
-$DISTMOD   = 'Pod::Usage';  ## The "title" module of this distribution
-@MODULES   = ( $DISTMOD,     ## Other modules in this distribution
+my $DISTNAME  = "Pod-Usage";    ## The "product" name for this distribution
+my $DISTMOD   = 'Pod::Usage';  ## The "title" module of this distribution
+my @MODULES   = ( $DISTMOD,     ## Other modules in this distribution
              );
 
 ## The executable scripts to be installed
-@SCRIPTS   = qw( pod2usage );
+my @SCRIPTS   = qw( pod2usage );
 sub script($) { File::Spec->catfile ('scripts', @_) }
 my @EXE_FILES = ();
 if ( $^O eq 'VMS' ) {
@@ -25,7 +27,7 @@ else {
 
 ## The test-script to execute regression tests (note that the
 ## 'xtra' directory might not exist for some installations)
-@TESTPODS = ();
+my @TESTPODS = ();
 my $testdir  = File::Spec->catfile('t', 'pod');
 my $test2dir = File::Spec->catfile($testdir, 'xtra');
 my @testdirs = ($testdir);
@@ -38,21 +40,19 @@ push @testdirs, $test2dir if (-d $test2dir);
 
 # needed for new pod2usage2.t
 my %prereq = (
-  'Pod::Parser'    => 1.60,
+  'Pod::Simple'    => 0,
+  'Pod::Text'      => 3.15,
   'Test::More'     => 0.60,
   'Cwd'            => 0,
-  'File::Basename' => 0
+  'File::Basename' => 0,
+  'File::Spec'     => 0.82,
 );
-if ($] < 5.005) {
-  ## Need File::Spec if this is 5.004 or earlier
-  $prereq{'File::Spec'} = 0.82;
-}
 
 WriteMakefile(
     NAME         => $DISTMOD,
     DISTNAME     => $DISTNAME,
-    VERSION      => '1.61',
-    INSTALLDIRS  => ($] >= 5.006 ? 'perl' : 'site'),
+    VERSION      => '1.62',
+    INSTALLDIRS  => ($] < 5.012 ? 'perl' : 'site'),
     PL_FILES     => { map { (script("$_.PL") => script($_)) } @SCRIPTS },
     EXE_FILES    => [ @EXE_FILES ],
     dist         => { COMPRESS => 'gzip', SUFFIX => 'gz' },

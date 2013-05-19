@@ -1,25 +1,27 @@
----
-abstract: 'Pod::Usage extracts POD documentation and shows usage information'
+--- #YAML:1.0
+name:               Pod-Usage
+version:            1.62
+abstract:           Pod::Usage extracts POD documentation and shows usage information
 author:
-  - 'Marek Rouchal <marekr@cpan.org>'
-build_requires:
-  ExtUtils::MakeMaker: 0
+    - Marek Rouchal <marekr@cpan.org>
+license:            unknown
+distribution_type:  module
 configure_requires:
-  ExtUtils::MakeMaker: 0
-dynamic_config: 0
-generated_by: 'ExtUtils::MakeMaker version 6.59, CPAN::Meta::Converter version 2.112150'
-license: perl
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-name: Pod-Usage
-no_index:
-  directory:
-    - t
-    - inc
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
 requires:
-  Cwd: 0
-  File::Basename: 0
-  Pod::Parser: 1.60
-  Test::More: 0.6
-version: 1.61
+    Cwd:             0
+    File::Basename:  0
+    File::Spec:      0.82
+    Pod::Simple:     0
+    Pod::Text:       3.15
+    Test::More:      0.6
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.57_05
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
