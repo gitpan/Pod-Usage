@@ -1,3 +1,9 @@
+1.63 (marekr)
+- CPAN#85477: Module version not updated in last release
+  ...fixed
+- CPAN#85478: typo fixes
+  ...corrected
+
 1.62 (marekr)
 Patches provided by rjbs - many thanks!
 - These commits update Pod::Usage to only use Pod::Simple, so that any
@@ -16,8 +22,6 @@ Patches provided by rjbs - many thanks!
     is written to let you alter @ISA at runtime to something that is derived
     either from Pod::Parser or Pod::Simple. This should probably be more
     explicitly limited to Pod::Simple in future releases.
-- CPAN#84031: eliminate branches using Pod::Parser
-  removed test suite dependencies on Pod::Parser
 
 1.61 (marekr)
 - fix empty META.yml (CPAN RT#83118: META.yml is empty)
