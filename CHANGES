@@ -1,3 +1,13 @@
+1.64 (marekr)
+- CPAN#93170: Abstract in pod doesn't follow convention
+    fixed the NAME section
+- CPAN#86932: documentation does not work with use strict
+    rewritten parts of the DESCRIPTION section
+- CPAN#86776: "pod2usage -verbose 2 FILE" is broken when perldoc is missing
+    verified that pod2usage acts decently if perldoc is missing
+    note: a Perl installation without perldoc is like a haunted house
+    without ghosts
+
 1.63 (marekr)
 - CPAN#85477: Module version not updated in last release
   ...fixed

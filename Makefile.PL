@@ -50,7 +50,7 @@ my %prereq = (
 WriteMakefile(
     NAME         => $DISTMOD,
     DISTNAME     => $DISTNAME,
-    VERSION      => '1.63',
+    VERSION      => '1.64',
     INSTALLDIRS  => ($] < 5.012 ? 'perl' : 'site'),
     PL_FILES     => { map { (script("$_.PL") => script($_)) } @SCRIPTS },
     EXE_FILES    => [ @EXE_FILES ],
